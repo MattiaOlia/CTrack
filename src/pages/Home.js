@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Coin from "./components/Coin";
 import { Link } from "react-router-dom";
 
+
 export function Home() {
   const [coins, setCoins] = useState([]);
   const [search, setSearch] = useState("");
@@ -17,7 +18,7 @@ export function Home() {
         console.log(res.data);
       })
       .catch(console.error("error"));
-  }, [coins]);
+  }, []);
 
   function handleChange(e) {
     setSearch(e.target.value);
@@ -33,7 +34,7 @@ export function Home() {
         <Link to="/">
           <h1>CRYPTO currancy</h1>{" "}
         </Link>
-
+        
         <div className="coin_search">
           <h3 className="coin_text">Insert name of the currancy</h3>
           <form>
