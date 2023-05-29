@@ -19,6 +19,7 @@ import {
   Filler,
   Legend,
 } from "chart.js";
+import InfoButton from "./components/InfoButton";
 
 ChartJS.register(
   CategoryScale,
@@ -94,8 +95,8 @@ function SingleCoin() {
     gradient.canvas.height = 300;
     gradient.canvas.width = 1;
     const gradientColor = gradient.createLinearGradient(0, 0, 0, gradient.canvas.height);
-    gradientColor.addColorStop(0, "rgba(135, 206, 250, 1)"); // Celeste più scuro
-    gradientColor.addColorStop(1, "rgba(135, 206, 250, 0)"); // Trasparente
+    gradientColor.addColorStop(0, "rgba(135, 206, 250, 1)"); 
+    gradientColor.addColorStop(1, "rgba(135, 206, 250, 0)"); 
     
     const data = {
       labels: coinChart.map((value) => moment(value.x).format("MMM DD")),
@@ -117,107 +118,130 @@ function SingleCoin() {
           <h1>CRYPTO currency</h1>
         </Link>
       </div>
-      <Box sx={{ p: 0.5, mt: 1 }}>
-        <Grid container spacing={2}>
-          <Grid item xs={12} sm={6}>
-          <Box>
-            <Paper>
-            <Box pt={2} display={"flex"} alignItems={"center"} justifyContent={"center"}>
-              {coinAnalist.image && (
-                <StyledImage src={coinAnalist.image.large} alt="" />
-              )}
-              <Typography variant="h3">{coinAnalist.name}</Typography>
-            </Box>
+      <Box  sx={{ p: 0.5, mt: 1 }}>
+      <Grid container spacing={2}>
+      <Box  display="flex" justifyContent="center" alignItems="center" width={"fit-content"}>
 
-              
-                <Box p={1}display={"flex"} flexDirection={"raw"} justifyContent={"space-evenly"} alignItems={"center"}>
-                  <Typography variant="h5" m={2}>
-                    £ {numeral(coinAnalist.market_data?.current_price.gbp).format("0,0.00")} 
-                  </Typography>
-                  <Box display={"flex"}  justifyContent={"left"} alignItems={"center"}>
-                  <Typography
-                    variant="h6"
-                    ml={2}
-                    color={
-                      coinAnalist.market_data?.market_cap_change_percentage_24h > 0
-                        ? "green"
-                        : "red"
-                    }
-                  >
-                    {coinAnalist.market_data?.market_cap_change_percentage_24h > 0 ? "+" : ""}
-                    {coinAnalist.market_data?.market_cap_change_percentage_24h.toFixed(2)} %
-                  </Typography>
-                  <Typography variant="body1" ml={1}>
-                    (24h)
-                  </Typography>
-                  </Box>
-                </Box>
-                </Paper>
-                <Grid container spacing={0.5} justifyContent="center" sx={{ mt: 5 ,mb: 3}}>
-                  <Grid item>
-                    <Button variant="outlined" onClick={() => setCoinChartDataDays("1")}>
-                      1 D
-                    </Button>
-                  </Grid>
-                  <Grid item>
-                    <Button variant="outlined" onClick={() => setCoinChartDataDays("7")}>
-                      7 D
-                    </Button>
-                  </Grid>
-                  <Grid item>
-                    <Button variant="outlined" onClick={() => setCoinChartDataDays("30")}>
-                      30 D
-                    </Button>
-                  </Grid>
-                  <Grid item>
-                    <Button variant="outlined" onClick={() => setCoinChartDataDays("365")}>
-                      1 Y
-                    </Button>
-                  </Grid>
-                  <Grid item>
-                    <Button variant="outlined" onClick={() => setCoinChartDataDays("max")}>
-                      MAX
-                    </Button>
-                  </Grid>
-                </Grid>
-                <Grid item xs={12} sm={6}>
-            <div className="chart-container">
-              <Line options={options} data={data} style={{height:"350px"}}/>
-            </div>
-          </Grid>
-          <Grid mt={3}>
-            <Paper>
-            <Box p={2} display={"flex"} justifyContent={"space-around"} >
-          <Typography variant="h6">
-        Market Cap: <br />
-       {" "+ numeral(coinAnalist.market_data?.market_cap.gbp).format("0.00 a")} £
-    </Typography>
-           
-    <Typography variant="h6">
-    Total Volume:  <br />
-       {" "+ numeral(coinAnalist.market_data?.total_volume.gbp).format("0.00 a")} £
-    </Typography>
-              </Box>
-              </Paper>
-              </Grid>
-                <Typography
-                  variant="body1"
-                  dangerouslySetInnerHTML={{
-                    __html: DOMPurify.sanitize(
-                      coinAnalist.description ? coinAnalist.description.en : ""
-                    ),
-                  }}
-                />
-              </Box>
+
+    <Grid item xs={11} md={6}>
+      <Box>
+        <Paper>
+          <Box pt={2} display="flex" alignItems="center" justifyContent="center">
+            {/* Image */}
+            {coinAnalist.image && (
+              <StyledImage src={coinAnalist.image.large} alt="" style={{ width: "40px" }} />
+            )}
+            {/* Name */}
+            <Typography variant="h4">{coinAnalist.name}</Typography>
+          </Box>
+
+          <Box p={1} display="flex" flexDirection="row" justifyContent="space-evenly" alignItems="center">
             
+            <Typography variant="h5" m={2}>
+              £ {numeral(coinAnalist.market_data?.current_price.gbp).format("0,0.00")}
+            </Typography>
+            <Box display="flex" justifyContent="left" alignItems="center">
+              
+              <Typography
+                variant="h6"
+                ml={2}
+                color={coinAnalist.market_data?.market_cap_change_percentage_24h > 0 ? "green" : "red"}
+              >
+                {coinAnalist.market_data?.market_cap_change_percentage_24h > 0 ? "+" : ""}
+                {coinAnalist.market_data?.market_cap_change_percentage_24h.toFixed(2)} %
+              </Typography>
+              <Typography variant="body1" ml={1}>
+                (24h)
+              </Typography>
+            </Box>
+          </Box>
+        </Paper>
+
+        
+        <Grid item xs={12}  ml={0} container spacing={0.5} justifyContent="center" sx={{ mt: 3, mb: 3 }}>
+          {/* days buttons */}
+          <Grid item>
+            <Button variant="outlined" onClick={() => setCoinChartDataDays("1")}>
+              1 D
+            </Button>
+          </Grid>
+          <Grid item>
+            <Button variant="outlined" onClick={() => setCoinChartDataDays("7")}>
+              7 D
+            </Button>
+          </Grid>
+          <Grid item>
+            <Button variant="outlined" onClick={() => setCoinChartDataDays("30")}>
+              30 D
+            </Button>
+          </Grid>
+          <Grid item>
+            <Button variant="outlined" onClick={() => setCoinChartDataDays("365")}>
+              1 Y
+            </Button>
+          </Grid>
+          <Grid item>
+            <Button variant="outlined" onClick={() => setCoinChartDataDays("max")}>
+              MAX
+            </Button>
           </Grid>
         </Grid>
+
+        {/* graphic */}
+        <Grid item xs={12} >
+          <div className="chart-container">
+            <Line options={options} data={data} style={{ height: "350px" }} />
+          </div>
+        </Grid>
       </Box>
+
+      
+      <Grid item mt={3}>
+        <Paper>
+          <Box p={3} gap={2} display="flex" justifyContent="space-between" flexWrap="wrap">
+            {/* Market Cap */}
+            <Typography variant="body1">
+              Market Cap: <br />
+              {" " + numeral(coinAnalist.market_data?.market_cap.gbp).format("0.00 a")} £
+            </Typography>
+
+            {/*  */}
+            <Typography variant="body1">
+              Total Volume: <br />
+              {" " + numeral(coinAnalist.market_data?.total_volume.gbp).format("0.00 a")} £
+            </Typography>
+
+            {/*  */}
+            <Typography variant="body1">
+              Circulating Sup: <br />
+              {" " + numeral(coinAnalist.market_data?.circulating_supply).format("0.00 a") + " " + coinAnalist.symbol}
+            </Typography>
+
+            {/*  */}
+            <Typography variant="body1">
+              Max Supply: <br />
+              {" " + numeral(coinAnalist.market_data?.max_supply).format("0.00 a") + " " + coinAnalist.symbol}
+            </Typography>
+          </Box>
+        </Paper>
+        <Box mt={3}>
+      <Paper>
+        <Box display="flex" justifyContent="center" flexDirection="column">
+          <InfoButton
+            nameCrypto={coinAnalist.name}
+            info={DOMPurify.sanitize(coinAnalist.description ? coinAnalist.description.en : "")}
+          />
+        </Box>
+      </Paper>
+    </Box>
+
+      </Grid>
+    </Grid>
+    </Box>
+    </Grid>
+  </Box>
     </div>
   );
 }
 
 export default SingleCoin;
-
-//<Typography variant="h6">Total Volume: {coinAnalist.market_data.total_volume.gbp}</Typography>
-         //   <Typography variant="h6">Circulating Supply:{coinAnalist.market_data.circulating_supply.gbp}</Typography>
