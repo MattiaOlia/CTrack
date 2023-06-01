@@ -7,6 +7,7 @@ import { Line } from "react-chartjs-2";
 import moment from "moment";
 import numeral from "numeral";
 import styled from 'styled-components';
+import WebFont from 'webfontloader';
 
 import {
   Chart as ChartJS,
@@ -69,6 +70,14 @@ function SingleCoin() {
       });
   }, [id]);
 
+  useEffect(() => {
+    WebFont.load({
+      google: {
+        families: ['Raleway:400,700']
+      }
+    });
+  }, []);
+
   const coinChart = coinChartData.prices
     ? coinChartData.prices.map((value) => ({
         x: value[0],
@@ -114,10 +123,15 @@ function SingleCoin() {
   return (
     <div className="single-coin">
       <div className="coin_hero">
-        <Link to="/">
-          <h1>CRYPTO currency</h1>
-        </Link>
-      </div>
+      <Link to="/" style={{ textDecoration: 'none' }}>
+      <Typography variant="h3" m={"0.5em"} style={{ fontFamily: 'Raleway, sans-serif', fontWeight: 800, textDecoration: 'none', color: 'rgba(135, 206, 250, 1)', letterSpacing: '2px', textDecoration: 'none' }}>
+    C-Track
+  </Typography>
+    
+
+</Link>
+
+          </div>
       <Box  sx={{ p: 0.5, mt: 1 }}>
       <Grid container spacing={2}>
       <Box  display="flex" justifyContent="center" alignItems="center" width={"fit-content"}>

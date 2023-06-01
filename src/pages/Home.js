@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Coin from "./components/Coin";
 import { Link } from "react-router-dom";
+import { Grid, Box, Typography, Button, Paper } from "@mui/material";
 
 
 export function Home() {
@@ -31,10 +32,12 @@ export function Home() {
   return (
     <div className="coin_app">
       <div className="coin_hero">
-        <Link to="/">
-          <h1>CRYPTO currancy</h1>{" "}
-        </Link>
-        
+      
+      <Link to="/" style={{ textDecoration: 'none' }}>
+  <Typography variant={window.innerWidth < 600 ? "h6" : "h3"} m={"0.5em"} style={{ fontFamily: 'Raleway, sans-serif', fontWeight: 800, textDecoration: 'none', color: 'rgba(135, 206, 250, 1)', letterSpacing: '2px', textDecoration: 'none' }}>
+    C-Track
+  </Typography>
+</Link>
         <div className="coin_search">
           <h3 className="coin_text">Insert name of the currancy</h3>
           <form>
@@ -47,6 +50,9 @@ export function Home() {
           </form>
         </div>
       </div>
+      
+    
+        
       <div className="coins_container">
         {filteredCoins.map((coin) => {
           return (
@@ -62,8 +68,13 @@ export function Home() {
             />
           );
         })}
+        
       </div>
+     
+      
+      
     </div>
+    
   );
 }
 
