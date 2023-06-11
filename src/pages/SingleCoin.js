@@ -123,7 +123,7 @@ function SingleCoin() {
   return (
     <div className="single-coin">
       <div className="coin_hero">
-      <Link to="/" style={{ textDecoration: 'none' }}>
+      <Link to="/Ctrack" style={{ textDecoration: 'none' }}>
       <Typography variant="h3" m={"0.5em"} style={{ fontFamily: 'Raleway, sans-serif', fontWeight: 800, textDecoration: 'none', color: 'rgba(135, 206, 250, 1)', letterSpacing: '2px', textDecoration: 'none' }}>
     C-Track
   </Typography>

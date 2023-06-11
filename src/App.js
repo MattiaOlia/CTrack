@@ -6,8 +6,8 @@ import SingleCoin from "./pages/SingleCoin";
 function App() {
   return (
     <Routes>
-      <Route exact path="/" element={<Home />} />
-      <Route path=":id" element={<SingleCoin />} />
+      <Route exact path="/CTrack" element={<Home />} />
+      <Route path="/CTrack/:id" element={<SingleCoin />} />
     </Routes>
   );
 }
