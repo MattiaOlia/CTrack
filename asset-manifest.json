@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/http//MattiaOlia.github.io/cryptoApp/static/css/main.639b68bd.css",
+    "main.js": "/http//MattiaOlia.github.io/cryptoApp/static/js/main.3c38b247.js",
+    "static/js/787.284a3ba0.chunk.js": "/http//MattiaOlia.github.io/cryptoApp/static/js/787.284a3ba0.chunk.js",
+    "index.html": "/http//MattiaOlia.github.io/cryptoApp/index.html",
+    "main.639b68bd.css.map": "/http//MattiaOlia.github.io/cryptoApp/static/css/main.639b68bd.css.map",
+    "main.3c38b247.js.map": "/http//MattiaOlia.github.io/cryptoApp/static/js/main.3c38b247.js.map",
+    "787.284a3ba0.chunk.js.map": "/http//MattiaOlia.github.io/cryptoApp/static/js/787.284a3ba0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.639b68bd.css",
+    "static/js/main.3c38b247.js"
+  ]
+}
