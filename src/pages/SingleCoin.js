@@ -123,24 +123,20 @@ function SingleCoin() {
 
   return (
     <div className="single-coin">
-      
-        <Box display={"flex"} justifyContent={"end"} m={2} mt={0}>
+      <Box  sx={{ p: 0.5, mt: 1 }}>
+      <Grid container spacing={2}>
+      <Box  display="flex" justifyContent="center" alignItems="center" width={"fit-content"}>
+    <Grid item xs={11} md={6}>
+      <Box>
+      <Box display={"flex"} justifyContent={"end"} m={2} mt={0}>
       <Link to="/Ctrack" style={{ textDecoration: 'none' }}>
-        
       <Typography variant="h4" m={"0.5em"} style={{ fontFamily: 'Raleway, sans-serif', fontWeight: 800, textDecoration: 'none', color: 'rgba(135, 206, 250, 1)', letterSpacing: '2px', textDecoration: 'none' }}>
       <ArrowBackIosNewIcon /> C-Track
   </Typography>
 </Link>
 </Box>
-          
-      <Box  sx={{ p: 0.5, mt: 1 }}>
-      <Grid container spacing={2}>
-      <Box  display="flex" justifyContent="center" alignItems="center" width={"fit-content"}>
-
-
-    <Grid item xs={11} md={6}>
-      <Box>
         <Paper>
+       
           <Box pt={2} display="flex" alignItems="center" justifyContent="center">
             {/* Image */}
             {coinAnalist.image && (
