@@ -1,4 +1,4 @@
-#C-Track
+# C-Track
 
 This project is a web-based Crypto Market Dashboard that provides real-time market prices, charts, and comprehensive information for various cryptocurrencies. It allows users to stay updated with the latest market trends, analyze historical data, and make informed decisions.
 
