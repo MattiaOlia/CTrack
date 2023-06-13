@@ -33,11 +33,11 @@ export function Home() {
     <div className="coin_app">
       <div className="coin_hero">
       
-      <Link to="/" style={{ textDecoration: 'none' }}>
+      
   <Typography variant={window.innerWidth < 600 ? "h6" : "h3"} m={"0.5em"} style={{ fontFamily: 'Raleway, sans-serif', fontWeight: 800, textDecoration: 'none', color: 'rgba(135, 206, 250, 1)', letterSpacing: '2px', textDecoration: 'none' }}>
     C-Track
   </Typography>
-</Link>
+
         <div className="coin_search">
           <h3 className="coin_text">Insert name of the currancy</h3>
           <form>

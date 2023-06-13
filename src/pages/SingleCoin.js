@@ -8,6 +8,7 @@ import moment from "moment";
 import numeral from "numeral";
 import styled from 'styled-components';
 import WebFont from 'webfontloader';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
 import {
   Chart as ChartJS,
@@ -122,16 +123,16 @@ function SingleCoin() {
 
   return (
     <div className="single-coin">
-      <div className="coin_hero">
+      
+        <Box display={"flex"} justifyContent={"end"} m={2} mt={0}>
       <Link to="/Ctrack" style={{ textDecoration: 'none' }}>
-      <Typography variant="h3" m={"0.5em"} style={{ fontFamily: 'Raleway, sans-serif', fontWeight: 800, textDecoration: 'none', color: 'rgba(135, 206, 250, 1)', letterSpacing: '2px', textDecoration: 'none' }}>
-    C-Track
+        
+      <Typography variant="h4" m={"0.5em"} style={{ fontFamily: 'Raleway, sans-serif', fontWeight: 800, textDecoration: 'none', color: 'rgba(135, 206, 250, 1)', letterSpacing: '2px', textDecoration: 'none' }}>
+      <ArrowBackIosNewIcon /> C-Track
   </Typography>
-    
-
 </Link>
-
-          </div>
+</Box>
+          
       <Box  sx={{ p: 0.5, mt: 1 }}>
       <Grid container spacing={2}>
       <Box  display="flex" justifyContent="center" alignItems="center" width={"fit-content"}>
